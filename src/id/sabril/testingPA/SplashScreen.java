@@ -14,7 +14,7 @@ public class SplashScreen extends Activity{
 			
 			@Override
 			public void run() {
-				Intent intent = new Intent(SplashScreen.this,TestingPAActivity.class);
+				Intent intent = new Intent(SplashScreen.this,Menu.class);
 				SplashScreen.this.startActivity(intent);
 				SplashScreen.this.finish();
 				

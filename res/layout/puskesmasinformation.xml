@@ -21,9 +21,9 @@
 
     <ImageView
         android:id="@+id/imageView1"
-        android:layout_width="250dp"
+        android:layout_width="300dp"
         android:layout_height="200dp"
-        android:src="@android:drawable/btn_dialog"
+        android:src="@drawable/no_image"
         android:layout_marginTop="10dp"
         android:layout_gravity="center_horizontal"
         android:contentDescription="@string/gambar_puskesmas" />

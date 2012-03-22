@@ -10,6 +10,29 @@
         android:layout_width="match_parent"
         android:layout_height="166dp"
         android:orientation="vertical" >
+
+        <LinearLayout
+            android:id="@+id/linearLayout5"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:orientation="vertical" >
+
+            </LinearLayout>
+        <LinearLayout
+            android:id="@+id/linearLayout4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+            <TextView
+            android:id="@+id/header"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="SIGApp Mobile"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:layout_marginLeft="10dp"
+            android:textSize="30dp" />
+        </LinearLayout>
+
     </LinearLayout>
 
     <LinearLayout
@@ -31,7 +54,7 @@
                 android:id="@+id/maps"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="30dp"
+                android:layout_marginLeft="40dp"
                 android:src="@drawable/maps_icon" />
                 <ImageView
             android:id="@+id/catalog"
@@ -50,7 +73,7 @@
                     android:id="@+id/about"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="30dp"
+                    android:layout_marginLeft="40dp"
                     android:src="@drawable/about_me_icon" />
                 <ImageView
             		android:id="@+id/close"

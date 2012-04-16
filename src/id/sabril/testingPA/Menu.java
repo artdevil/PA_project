@@ -1,9 +1,12 @@
 package id.sabril.testingPA;
 
+import java.io.IOException;
+
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.database.sqlite.SQLiteException;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.view.View;
@@ -19,6 +22,7 @@ public class Menu extends Activity implements OnClickListener{
 	public void onCreate(Bundle instanceBundle) {
 		super.onCreate(instanceBundle);
 		setContentView(R.layout.menu);
+		setupDatabase();
 		Typeface tf = Typeface.createFromAsset(getAssets(),"font/comicbd.ttf");
 		TextView header = (TextView) findViewById(R.id.header);
 		header.setTypeface(tf);
@@ -48,6 +52,22 @@ public class Menu extends Activity implements OnClickListener{
 			close();
 		}
 	}
+	
+	public void setupDatabase(){
+    	DatabaseHandler myDatatabase = new DatabaseHandler(null);
+    	myDatatabase = new DatabaseHandler(this);
+    	try {
+			myDatatabase.createDatabase();
+		} catch (IOException e) {
+			throw new Error("unable to create database");
+		}
+    	
+    	try {
+			myDatatabase.openDatabase();
+		} catch (SQLiteException sqle) {
+			throw sqle;
+		}
+    }
 	
 	public void close() {
 		AlertDialog alert = new AlertDialog.Builder(this).create();

@@ -2,7 +2,11 @@ package id.sabril.testingPA;
 
 
 
+import java.util.ArrayList;
+import java.util.List;
+
 import android.app.Activity;
+import android.content.Intent;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.view.View;
@@ -21,12 +25,16 @@ public class ListMenuCatalog extends Activity{
 		Typeface tf = Typeface.createFromAsset(getAssets(),"font/comicbd.ttf");
 		TextView header = (TextView) findViewById(R.id.header);
 		header.setTypeface(tf);
-		String[] values = new String[] { "Android", "iPhone", "WindowsMobile",
-				"Blackberry", "WebOS", "Ubuntu", "Windows7", "Max OS X",
-				"Linux", "OS/2" }; 
+		DatabaseHandler db = new DatabaseHandler(this);
+		List<Kategori> kategori = db.getAllKategori();
+		ArrayList strings = new ArrayList();
+		for (Kategori cn : kategori){
+			strings.add(cn.getNamaKategori());
+		};
+		String[] va = (String[]) strings.toArray(new String[strings.size()]);
 		ListView listView = (ListView) findViewById(R.id.listView);
 		listView.setTextFilterEnabled(true);
-		adapter = new ListMenuPuskesmasAdapter(this, values);
+		adapter = new ListMenuPuskesmasAdapter(this, va);
 		listView.setAdapter(adapter);
 		
 		listView.setOnItemClickListener(new OnItemClickListener() {
@@ -34,22 +42,10 @@ public class ListMenuCatalog extends Activity{
 			public void onItemClick(AdapterView<?> parent, View v, int position,
 					long id) {
 				String selectedValue = (String) adapter.getItem(position);
-				Toast.makeText(getBaseContext(), selectedValue, Toast.LENGTH_SHORT).show();
-				
+				Intent intent = new Intent(getBaseContext(), InfoCatalog.class);
+				intent.putExtra("catalogName", selectedValue);
+				startActivity(intent);
 			}
 		});
-		//setContentView(R.layout.listmenucatalog);
-
-        
-
-		//String[] items = {"red", "blue","green"};
-
-
-
-		//ListView listView = (ListView) findViewById(R.id.listView);
-
-		//listView.setAdapter(new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, items));
-		
-
 	}
 }

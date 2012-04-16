@@ -17,6 +17,7 @@ public class DatabaseHandler extends SQLiteOpenHelper{
 	private static final int DATABASE_VERSION = 1;
 	private static final String DATABASE_NAME = "PAapp";
 	private static final String TABLE_PUSKESMAS = "puskesmas";
+	private static final String TABLE_CATEGORY = "kategori";
 	private static final String KEY_NAMAPUSKESMAS = "namapuskesmas";
 	private static final String KEY_LATITUDE = "latitude";
 	private static final String KEY_LONGNITUDE = "longnitude";
@@ -124,6 +125,34 @@ public class DatabaseHandler extends SQLiteOpenHelper{
 		return puskesmasList;
 	}
 	
+	//get all kategori
+		public List<Kategori> getAllKategori() {
+			List<Kategori> kategoriList = new ArrayList<Kategori>();
+			String selectQuery = "SELECT * FROM " + TABLE_CATEGORY ;
+			SQLiteDatabase db = this.getWritableDatabase();
+			Cursor cursor = db.rawQuery(selectQuery, null);
+			if(cursor.moveToFirst()){
+				do{
+					Kategori kategori = new Kategori(Integer.parseInt(cursor.getString(0)), cursor.getString(1), cursor.getString(2));
+					kategoriList.add(kategori);
+				}while(cursor.moveToNext());
+			}
+			return kategoriList;
+		}
+
+		//get single kategori
+		Kategori getKategori(String name){
+			SQLiteDatabase db = this.getReadableDatabase();
+			String query = "SELECT * FROM " + TABLE_CATEGORY + " WHERE nama_kategori='"+ name +"';";
+			Cursor cursor = db.rawQuery(query, null);
+			if(cursor != null){
+				cursor.moveToFirst();
+			}
+			Kategori kategori = new Kategori(Integer.parseInt(cursor.getString(0)), cursor.getString(1), cursor.getString(2));
+			return kategori;
+			
+		}
+		
 	//get single puskesmas
 	Puskesmas getPuskesmas(int id){
 		SQLiteDatabase db = this.getReadableDatabase();
@@ -136,6 +165,7 @@ public class DatabaseHandler extends SQLiteOpenHelper{
 		return puskesmas;
 		
 	}
+	
 
 	//get_search_puskesmas
 	Puskesmas searchPuskesmas(String search){

@@ -39,7 +39,8 @@ public class mapPuskesmasOverlay extends BalloonItemizedOverlay<OverlayItem> {
 	@Override
 	protected boolean onBalloonTap(int index, OverlayItem item){
 		int id = index + 1;
-		Intent myIntent = new Intent("id.sabril.testingPA.puskesmasInformation");
+		//Intent myIntent = new Intent("id.sabril.testingPA.puskesmasInformation");
+		Intent myIntent = new Intent(mContext,puskesmasInformation.class);
 		myIntent.putExtra("ID", id);
 		((TestingPAActivity) mContext).startActivityForResult(myIntent,1);
 		return true;

@@ -6,32 +6,31 @@
 <TableLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:background="@drawable/menu2"
+    android:layout_height="match_parent"
     android:shrinkColumns="*"  
-    android:stretchColumns="*">
+    android:stretchColumns="*"
+    android:background="#ffffff">
     <!-- Row 1 with single column -->
     <TableRow
         android:layout_height="wrap_content"
         android:layout_width="fill_parent"
         android:gravity="center_horizontal"
-        android:layout_marginTop="30dp"
-        android:layout_marginBottom="75dp">
+        android:layout_marginBottom="10dp">
         <TextView
             android:layout_width="match_parent" 
             android:layout_height="wrap_content"
-            android:textSize="24dp"
-            android:id="@+id/puskesmas"
+            android:textSize="24dp" 
+            android:text="Row 1"
             android:paddingLeft="5dp"  
             android:layout_span="3"
-            android:textAppearance="?android:attr/textAppearanceLarge"/>
+            android:background="#b0b0b0"
+            android:textColor="#000"/>
     </TableRow>
  		<ImageView
- 		    android:id="@+id/imagePuskesmas"
+ 		    android:id="@+id/imageView1"
  		    android:layout_width="300dp"
 	        android:layout_height="200dp"
- 		    android:src="@drawable/no_image"
- 		    android:contentDescription="@string/gambar_puskesmas" />
+ 		    android:src="@drawable/no_image" />
  
     <!-- Row 3 with 2 columns -->
     <TableRow
@@ -44,14 +43,16 @@
             android:text="@string/alamat"
             android:layout_weight="1" 
             android:layout_width="10dp"
+            android:background="#b0b0b0"
             android:textColor="#000000"
             android:gravity="left"
             android:paddingLeft="5dp"/>
  
         <TextView
-            android:id="@+id/alamat"
+            android:id="@+id/TextView04" 
+            android:text="Row 3 column 2"
             android:layout_weight="1" 
-            
+            android:background="#a09f9f"
             android:textColor="#000000"
             android:gravity="left"/>
     </TableRow> 
@@ -62,18 +63,20 @@
         android:gravity="center_horizontal"
         android:paddingTop="3dp">
         <TextView
+            android:id="@+id/TextView04" 
             android:text="@string/telephone"
             android:layout_weight="1" 
             android:layout_width="10dp"
-            
+            android:background="#b0b0b0"
             android:textColor="#000000"
             android:gravity="left"
             android:paddingLeft="5dp"/>
  
         <TextView
-            android:id="@+id/telephone"
+            android:id="@+id/TextView04" 
+            android:text="Row 3 column 2"
             android:layout_weight="1" 
-            
+            android:background="#a09f9f"
             android:textColor="#000000"
             android:gravity="left"/>
     </TableRow> 
@@ -83,18 +86,20 @@
         android:gravity="center_horizontal"
         android:paddingTop="3dp">
         <TextView
+            android:id="@+id/TextView04" 
             android:text="@string/latitude"
             android:layout_weight="1" 
             android:layout_width="10dp"
-            
+            android:background="#b0b0b0"
             android:textColor="#000000"
             android:gravity="left"
             android:paddingLeft="5dp"/>
  
         <TextView
-            android:id="@+id/latitude"
+            android:id="@+id/TextView04" 
+            android:text="Row 3 column 2"
             android:layout_weight="1" 
-            
+            android:background="#a09f9f"
             android:textColor="#000000"
             android:gravity="left"/>
     </TableRow> 
@@ -104,18 +109,20 @@
         android:gravity="center_horizontal"
         android:paddingTop="3dp">
         <TextView
+            android:id="@+id/TextView04" 
             android:text="@string/longnitude"
             android:layout_weight="1" 
             android:layout_width="10dp"
-            
+            android:background="#b0b0b0"
             android:textColor="#000000"
             android:gravity="left"
             android:paddingLeft="5dp"/>
  
         <TextView
-            android:id="@+id/longnitude"
+            android:id="@+id/TextView04" 
+            android:text="Row 3 column 2"
             android:layout_weight="1" 
-            
+            android:background="#a09f9f"
             android:textColor="#000000"
             android:gravity="left"/>
     </TableRow>
@@ -129,11 +136,10 @@
             android:layout_width="match_parent" 
             android:layout_height="wrap_content"
             android:textSize="18dp" 
-            android:text="@string/pelayanan"
+            android:text="Pelayanan"
             android:paddingLeft="5dp"  
             android:layout_span="3"
-            android:textColor="#44b1de"
-            android:textStyle="bold"/>
+            android:textColor="#000"/>
  	</TableRow>
 
     <LinearLayout
@@ -150,193 +156,193 @@
             <TableRow
                 android:id="@+id/tableRow5"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:paddingBottom="5dp" >
+                android:layout_height="wrap_content" >
 	                <TextView
-			            android:text="@string/poli_umum"
+			            android:id="@+id/TextView04" 
+			            android:text="poli umum"
 			            android:layout_weight="1" 
 			            android:layout_width="10dp"
-			            
+			            android:background="#b0b0b0"
 			            android:textColor="#000000"
 			            android:gravity="left"
 			            android:paddingLeft="5dp"/>
 
 	                <ImageView
-	                    android:id="@+id/poli_umum"
+	                    android:id="@+id/imageView2"
 	                    android:layout_width="30dp"
-			            android:paddingTop="2dp"
-			            android:contentDescription="@string/poli_umum_image" />
+	                    android:src="@drawable/search" />
 
 	                <TextView
-			            android:text="@string/poli_kia_kb"
+			            android:id="@+id/TextView04" 
+			            android:text="poli KIA/KB"
 			            android:layout_weight="1" 
 			            android:layout_width="10dp"
-			            
+			            android:background="#b0b0b0"
 			            android:textColor="#000000"
 			            android:gravity="left"
 			            android:paddingLeft="5dp"/>
 	                
 	                <ImageView
-	                    android:id="@+id/poli_KIA_KB"
+	                    android:id="@+id/imageView2"
 	                    android:layout_width="30dp"
-			            android:paddingTop="2dp"
-			            android:contentDescription="@string/poli_kia_image" />
+	                    android:src="@drawable/search" />
             </TableRow>
             <TableRow
+			    android:id="@+id/tableRow5"
 			    android:layout_width="wrap_content"
-			    android:layout_height="wrap_content"
-			    android:paddingBottom="5dp" >
+			    android:layout_height="wrap_content" >
 			        <TextView
-			            android:text="@string/poli_gigi"
+			            android:id="@+id/TextView04" 
+			            android:text="poli gigi"
 			            android:layout_weight="1" 
 			            android:layout_width="10dp"
-			            
+			            android:background="#b0b0b0"
 			            android:textColor="#000000"
 			            android:gravity="left"
 			            android:paddingLeft="5dp"/>
 			
 			        <ImageView
-			            android:id="@+id/poli_gigi"
+			            android:id="@+id/imageView2"
 			            android:layout_width="30dp"
-			            android:contentDescription="@string/poli_gigi_image"
-			            android:paddingTop="2dp" />
+			            android:src="@drawable/search" />
 			
 			        <TextView
-			            android:text="@string/poli_tbc"
+			            android:id="@+id/TextView04" 
+			            android:text="poli TBC"
 			            android:layout_weight="1" 
 			            android:layout_width="10dp"
-			            
+			            android:background="#b0b0b0"
 			            android:textColor="#000000"
 			            android:gravity="left"
 			            android:paddingLeft="5dp"/>
 			        
 			        <ImageView
-			            android:id="@+id/poli_TBC"
+			            android:id="@+id/imageView2"
 			            android:layout_width="30dp"
-			            android:contentDescription="@string/poli_tbc_image"
-			            android:paddingTop="2dp" />
+			            android:src="@drawable/search" />
 			</TableRow>
 			<TableRow
+			    android:id="@+id/tableRow5"
 			    android:layout_width="wrap_content"
-			    android:layout_height="wrap_content"
-			    android:paddingBottom="5dp" >
+			    android:layout_height="wrap_content" >
 			        <TextView
-			            android:text="@string/rawat_inap"
+			            android:id="@+id/TextView04" 
+			            android:text="Rawat inap"
 			            android:layout_weight="1" 
 			            android:layout_width="10dp"
-			            
+			            android:background="#b0b0b0"
 			            android:textColor="#000000"
 			            android:gravity="left"
 			            android:paddingLeft="5dp"/>
 			
 			        <ImageView
-			            android:id="@+id/rawat_inap"
+			            android:id="@+id/imageView2"
 			            android:layout_width="30dp"
-			            android:contentDescription="@string/rawat_inap_image"
-			            android:paddingTop="2dp" />
+			            android:src="@drawable/search" />
 			
 			        <TextView
-			            android:text="@string/poned"
+			            android:id="@+id/TextView04" 
+			            android:text="PONED"
 			            android:layout_weight="1" 
 			            android:layout_width="10dp"
-			            
+			            android:background="#b0b0b0"
 			            android:textColor="#000000"
 			            android:gravity="left"
 			            android:paddingLeft="5dp"/>
 			        
 			        <ImageView
-			            android:id="@+id/poned"
+			            android:id="@+id/imageView2"
 			            android:layout_width="30dp"
-			            android:contentDescription="@string/poned_image"
-			            android:paddingTop="2dp" />
+			            android:src="@drawable/search" />
 			</TableRow>
 			<TableRow
+			    android:id="@+id/tableRow5"
 			    android:layout_width="wrap_content"
-			    android:layout_height="wrap_content"
-			    android:paddingBottom="5dp" >
+			    android:layout_height="wrap_content" >
 			        <TextView
-			            android:text="@string/ugd"
+			            android:id="@+id/TextView04" 
+			            android:text="UGD"
 			            android:layout_weight="1" 
 			            android:layout_width="10dp"
-			            
+			            android:background="#b0b0b0"
 			            android:textColor="#000000"
 			            android:gravity="left"
 			            android:paddingLeft="5dp"/>
 			
 			        <ImageView
-			            android:id="@+id/ugd"
+			            android:id="@+id/imageView2"
 			            android:layout_width="30dp"
-			            android:contentDescription="@string/ugd_image"
-			            android:paddingTop="2dp" />
+			            android:src="@drawable/search" />
 			
 			        <TextView
-			            android:text="@string/persalinan"
+			            android:id="@+id/TextView04" 
+			            android:text="Persalinan"
 			            android:layout_weight="1" 
 			            android:layout_width="10dp"
-			            
+			            android:background="#b0b0b0"
 			            android:textColor="#000000"
 			            android:gravity="left"
 			            android:paddingLeft="5dp"/>
 			        
 			        <ImageView
-			            android:id="@+id/persalinan"
+			            android:id="@+id/imageView2"
 			            android:layout_width="30dp"
-			            android:contentDescription="@string/persalinan_image"
-			            android:paddingTop="2dp" />
+			            android:src="@drawable/search" />
 			</TableRow>
 			<TableRow
+			    android:id="@+id/tableRow5"
 			    android:layout_width="wrap_content"
-			    android:layout_height="wrap_content"
-			    android:paddingBottom="5dp" >
+			    android:layout_height="wrap_content" >
 			        <TextView
-			            android:text="@string/konsultasi_pojok_gizi"
+			            android:id="@+id/TextView04" 
+			            android:text="konsultasi pojok gizi"
 			            android:layout_weight="1" 
 			            android:layout_width="10dp"
-			            
+			            android:background="#b0b0b0"
 			            android:textColor="#000000"
 			            android:gravity="left"
 			            android:paddingLeft="5dp"/>
 			
 			        <ImageView
-			            android:id="@+id/konsultasi_pojok_gizi"
+			            android:id="@+id/imageView2"
 			            android:layout_width="30dp"
-			            android:contentDescription="@string/konsultasi_pojok_gizi_image"
-			            android:paddingTop="2dp" />
+			            android:src="@drawable/search" />
 			
 			        <TextView
-			            android:text="@string/konsultasi_kesehatan"
+			            android:id="@+id/TextView04" 
+			            android:text="konsultasi kesehatan"
 			            android:layout_weight="1" 
 			            android:layout_width="10dp"
-			            
+			            android:background="#b0b0b0"
 			            android:textColor="#000000"
 			            android:gravity="left"
 			            android:paddingLeft="5dp"/>
 			        
 			        <ImageView
-			            android:id="@+id/konsultasi_kesehatan"
+			            android:id="@+id/imageView2"
 			            android:layout_width="30dp"
-			            android:contentDescription="@string/konsultasi_kesehatan"
-			            android:paddingTop="2dp"/>
+			            android:src="@drawable/search" />
 			</TableRow>
 			<TableRow
+			    android:id="@+id/tableRow5"
 			    android:layout_width="wrap_content"
-			    android:layout_height="wrap_content"
-			    android:paddingBottom="5dp" >
+			    android:layout_height="wrap_content" >
 			        <TextView
-			            android:text="@string/laboratorium"
+			            android:id="@+id/TextView04" 
+			            android:text="laboratorium"
 			            android:layout_weight="1" 
 			            android:layout_width="10dp"
-			            
+			            android:background="#b0b0b0"
 			            android:textColor="#000000"
 			            android:gravity="left"
 			            android:paddingLeft="5dp"/>
 			
 			        <ImageView
-			            android:id="@+id/laboratorium"
+			            android:id="@+id/imageView2"
 			            android:layout_width="30dp"
-			            android:contentDescription="@string/laboratorium"
-			            android:layout_gravity="center_vertical" />
+			            android:src="@drawable/search" />
 			        <TextView
+			            android:id="@+id/TextView04" 
 			            android:layout_weight="1" 
 			            android:layout_width="10dp"
 			            android:gravity="left"
@@ -344,8 +350,7 @@
 			
 			        <ImageView
 			            android:id="@+id/imageView2"
-			            android:layout_width="30dp"
-			            android:contentDescription="@string/empty" />
+			            android:layout_width="30dp" />
 			</TableRow>
         </TableLayout>
     </LinearLayout>

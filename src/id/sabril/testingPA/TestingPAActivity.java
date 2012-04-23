@@ -11,6 +11,8 @@ import com.google.android.maps.MapController;
 import com.google.android.maps.MapView;
 import com.google.android.maps.Overlay;
 import com.google.android.maps.OverlayItem;
+
+import android.content.Context;
 import android.content.Intent;
 import android.database.sqlite.SQLiteException;
 import android.graphics.drawable.Drawable;
@@ -32,6 +34,7 @@ public class TestingPAActivity extends MapActivity{
 	public UserOverlay userOverlay;
 	public Boolean status_track;
 	public GeoPoint pointLocation;
+	protected Context context;
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -137,7 +140,8 @@ public class TestingPAActivity extends MapActivity{
 
     public void markerUser(){
     	mapOverlays = mapView.getOverlays();
-		drawable = getBaseContext().getResources().getDrawable(R.drawable.user);
+		//drawable = getBaseContext().getResources().getDrawable(R.drawable.user);
+    	drawable = this.getResources().getDrawable(R.drawable.user);
     	userOverlay = new UserOverlay(drawable);
     	overlayItem = new OverlayItem(pointLocation, "hello", "hello");
     	userOverlay.addOverlay(overlayItem);

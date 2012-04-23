@@ -18,6 +18,7 @@ public class DatabaseHandler extends SQLiteOpenHelper{
 	private static final String DATABASE_NAME = "PAapp";
 	private static final String TABLE_PUSKESMAS = "puskesmas";
 	private static final String TABLE_CATEGORY = "kategori";
+	private static final String INFO_KATEGORY = "info_kategori";
 	private static final String KEY_NAMAPUSKESMAS = "namapuskesmas";
 	private static final String KEY_LATITUDE = "latitude";
 	private static final String KEY_LONGNITUDE = "longnitude";
@@ -118,7 +119,7 @@ public class DatabaseHandler extends SQLiteOpenHelper{
 		Cursor cursor = db.rawQuery(selectQuery, null);
 		if(cursor.moveToFirst()){
 			do{
-				Puskesmas puskesmas = new Puskesmas(Integer.parseInt(cursor.getString(0)),cursor.getString(1),cursor.getString(2),cursor.getString(3),cursor.getString(4));
+				Puskesmas puskesmas = new Puskesmas(Integer.parseInt(cursor.getString(0)),cursor.getString(1),cursor.getString(2),cursor.getString(3),cursor.getString(4),cursor.getString(5));
 				puskesmasList.add(puskesmas);
 			}while(cursor.moveToNext());
 		}
@@ -156,12 +157,16 @@ public class DatabaseHandler extends SQLiteOpenHelper{
 	//get single puskesmas
 	Puskesmas getPuskesmas(int id){
 		SQLiteDatabase db = this.getReadableDatabase();
-		String query = "SELECT * FROM " + TABLE_PUSKESMAS + " WHERE _id='"+ id +"';";
+		String query = "SELECT p._id, p.namapuskesmas, p.latitude, p.longnitude, p.alamat, p.telephone," +
+				" ik.poli_umum, ik.poli_gigi, ik.poli_KIA, ik.poli_TB, ik.rawat_inap," +
+				" ik.PONED, ik.UGD, ik.persalinan, ik.pojok_gizi, ik.konsultasi_kesehatan, ik.laboratorium FROM " +TABLE_PUSKESMAS +" p INNER JOIN "+ INFO_KATEGORY +" ik ON p._id = ik.id_puskesmas" + " WHERE p._id='"+ id +"';";
 		Cursor cursor = db.rawQuery(query, null);
 		if(cursor != null){
 			cursor.moveToFirst();
 		}
-		Puskesmas puskesmas = new Puskesmas(Integer.parseInt(cursor.getString(0)),cursor.getString(1),cursor.getString(2),cursor.getString(3),cursor.getString(4));
+		Puskesmas puskesmas = new Puskesmas(Integer.parseInt(cursor.getString(0)),cursor.getString(1),cursor.getString(2),cursor.getString(3),cursor.getString(4),cursor.getString(5)
+				,cursor.getString(6),cursor.getString(7),cursor.getString(8),cursor.getString(9),cursor.getString(10),cursor.getString(11),cursor.getString(12),cursor.getString(13)
+				,cursor.getString(14),cursor.getString(15),cursor.getString(16));
 		return puskesmas;
 		
 	}
@@ -173,14 +178,13 @@ public class DatabaseHandler extends SQLiteOpenHelper{
 		String query = "SELECT * FROM " + TABLE_PUSKESMAS + " WHERE namapuskesmas LIKE '%"+ search +"%' LIMIT 1;";
 		Cursor cursor = db.rawQuery(query, null);
 		if(cursor.moveToFirst()){
-			Puskesmas puskesmas = new Puskesmas(Integer.parseInt(cursor.getString(0)),cursor.getString(1),cursor.getString(2),cursor.getString(3),cursor.getString(4));
+			Puskesmas puskesmas = new Puskesmas(Integer.parseInt(cursor.getString(0)),cursor.getString(1),cursor.getString(2),cursor.getString(3),cursor.getString(4),cursor.getString(5));
 			return puskesmas;
 		}
 		else{
-			Puskesmas puskesmas = new Puskesmas(0, null, null, null, null);
+			Puskesmas puskesmas = new Puskesmas(0, null, null, null, null,null);
 			return puskesmas;
 		}
-		
 	}
 	
 }

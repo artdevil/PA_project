@@ -5,7 +5,6 @@ import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
 import android.os.Bundle;
-import android.widget.Toast;
 
 import java.util.Timer;
 import java.util.TimerTask;
@@ -29,10 +28,9 @@ public class MyLocation {
         try{network_enabled=lm.isProviderEnabled(LocationManager.NETWORK_PROVIDER);}catch(Exception ex){}
 
         //don't start listeners if no provider is enabled
-        if(!gps_enabled && !network_enabled){
-        	Toast.makeText(context, "aktifkan GPS dan internet anda", Toast.LENGTH_SHORT).show();
+        if(!gps_enabled && !network_enabled)
             return false;
-        }
+
         if(gps_enabled)
             lm.requestLocationUpdates(LocationManager.GPS_PROVIDER, 0, 0, locationListenerGps);
         if(network_enabled)

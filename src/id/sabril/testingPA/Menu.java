@@ -31,6 +31,7 @@ public class Menu extends Activity implements OnClickListener{
 		catalog = (ImageView) findViewById(R.id.catalog);
 		catalog.setOnClickListener(this);
 		about = (ImageView) findViewById(R.id.about);
+		about.setOnClickListener(this);
 		close = (ImageView) findViewById(R.id.close);
 		close.setOnClickListener(this);
 	}
@@ -38,6 +39,7 @@ public class Menu extends Activity implements OnClickListener{
 	public void onClick(View view) {
 		if(view == maps){
 			Intent intent = new Intent(this,TestingPAActivity.class);
+			intent.putExtra("ID", 1);
 			startActivity(intent); 
 		}
 		
@@ -46,28 +48,13 @@ public class Menu extends Activity implements OnClickListener{
 			startActivity(intent);
 		}
 		else if(view == about){
-			
+			Intent intent = new Intent(this,About.class);
+			startActivity(intent);
 		}
 		else if(view == close){
 			close();
 		}
 	}
-	
-	public void setupDatabase(){
-    	DatabaseHandler myDatatabase = new DatabaseHandler(null);
-    	myDatatabase = new DatabaseHandler(this);
-    	try {
-			myDatatabase.createDatabase();
-		} catch (IOException e) {
-			throw new Error("unable to create database");
-		}
-    	
-    	try {
-			myDatatabase.openDatabase();
-		} catch (SQLiteException sqle) {
-			throw sqle;
-		}
-    }
 	
 	public void close() {
 		AlertDialog alert = new AlertDialog.Builder(this).create();
@@ -90,4 +77,22 @@ public class Menu extends Activity implements OnClickListener{
 		});
 		alert.show();
 	}
+	
+	public void setupDatabase(){
+    	DatabaseHandler myDatatabase = new DatabaseHandler(null);
+    	myDatatabase = new DatabaseHandler(this);
+    	try {
+			myDatatabase.createDatabase();
+		} catch (IOException e) {
+			throw new Error("unable to create database");
+		}
+    	
+    	try {
+			myDatatabase.openDatabase();
+		} catch (SQLiteException sqle) {
+			throw sqle;
+		}
+    }
+	
+	
 }

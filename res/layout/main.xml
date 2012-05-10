@@ -37,12 +37,12 @@
     </LinearLayout>
 
     <com.google.android.maps.MapView
-        android:id="@+id/mapView"
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
-        android:apiKey="0x3-c3-Zr5kbi47Ocq0N5MVx8r48D3DP0tMo56g"
-        android:clickable="true"
-        android:enabled="true" >
-    </com.google.android.maps.MapView>
+                 android:layout_width="fill_parent"
+                 android:layout_height="fill_parent"
+                 android:id="@+id/mapView"
+                 android:clickable="true"
+        		android:enabled="true"
+                 android:apiKey="0x3-c3-Zr5kbpdbARnBLh7UlD_w671biqHYy6Kg"
+                 />
 
 </LinearLayout>

@@ -27,8 +27,8 @@ public class DirectionPathOverlay extends Overlay{
 				paint.setAntiAlias(true);
 				Point point = new Point();
 				projection.toPixels(gp1, point);
-				paint.setColor(Color.GREEN);
-				paint.setAlpha(150);
+				paint.setColor(Color.parseColor("#46b5d9"));
+				paint.setAlpha(130);
 				Point point2 = new Point();
 				projection.toPixels(gp2, point2);
 				paint.setStrokeWidth(8);

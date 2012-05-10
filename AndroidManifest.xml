@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="id.sabril.testingPA"
-    android:versionCode="1"
-    android:versionName="1.0" >
+    android:versionCode="2"
+    android:versionName="1.1" >
 
     <uses-sdk android:minSdkVersion="8" />
 	<uses-permission android:name="android.permission.INTERNET"/>
@@ -11,7 +11,6 @@
     <application
         android:icon="@drawable/launcher"
         android:label="@string/app_name" >
-        <uses-library android:name="com.google.android.maps" />
         <activity 
             android:name=".SplashScreen"
             android:label="@string/app_name"
@@ -29,6 +28,17 @@
             android:screenOrientation="portrait" >
         </activity>
         <activity
+            android:name=".TestingPAActivity"
+            android:label="@string/app_name"
+            android:theme="@android:style/Theme.NoTitleBar"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name=".mapPuskesmasOverlay"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
             android:name=".ListMenuCatalog"
             android:label="@string/app_name"
             android:theme="@android:style/Theme.NoTitleBar"
@@ -41,11 +51,10 @@
             android:screenOrientation="portrait" >
         </activity>
         <activity
-            android:name=".TestingPAActivity"
+            android:name=".About"
             android:label="@string/app_name"
             android:theme="@android:style/Theme.NoTitleBar"
-            android:process=":TestingPAProcess" >
-            
+            android:screenOrientation="portrait" >
         </activity>
         <activity
             android:name=".puskesmasInformation"
@@ -57,6 +66,7 @@
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
+        <uses-library android:name="com.google.android.maps" ></uses-library>
     </application>
 
 </manifest>

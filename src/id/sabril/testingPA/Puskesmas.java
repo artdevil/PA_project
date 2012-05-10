@@ -8,7 +8,6 @@ public class Puskesmas {
 	String _alamat;
 	String _telephone;
 	String poli_umum;
-	String poli_gigi;
 	String poli_KIA_KB;
 	String poli_TBC; 
 	String rawat_inap;
@@ -18,6 +17,7 @@ public class Puskesmas {
 	String konsultasi_pojok_gizi; 
 	String konsultasi_kesehatan; 
 	String laboratorium;
+	String poli_THT;
 	
 	public Puskesmas(){
 		this._id = (Integer) null;
@@ -38,8 +38,8 @@ public class Puskesmas {
 	}
 	
 	public Puskesmas(int id, String namapuskesmas, String _latitude, String _longnitude, String _alamat, String _telephone, 
-			String poli_umum, String poli_gigi, String poli_KIA_KB,String poli_TBC, String rawat_inap, String PONED, String UGD,
-			String persalinan, String konsultasi_pojok_gizi, String konsultasi_kesehatan, String laboratorium){
+			String poli_umum, String poli_KIA_KB,String poli_TBC, String rawat_inap, String PONED, String UGD,
+			String persalinan, String konsultasi_pojok_gizi, String konsultasi_kesehatan, String laboratorium, String poli_THT){
 		this._id = id;
 		this._namapuskesmas = namapuskesmas;
 		this._latitude = _latitude;
@@ -47,7 +47,6 @@ public class Puskesmas {
 		this._alamat = _alamat;
 		this._telephone = _telephone;
 		this.poli_umum = poli_umum;
-		this.poli_gigi = poli_gigi;
 		this.poli_KIA_KB = poli_KIA_KB;
 		this.poli_TBC = poli_TBC;
 		this.rawat_inap = rawat_inap;
@@ -57,6 +56,7 @@ public class Puskesmas {
 		this.konsultasi_pojok_gizi = konsultasi_pojok_gizi;
 		this.konsultasi_kesehatan = konsultasi_kesehatan;
 		this.laboratorium = laboratorium;
+		this.poli_THT = poli_THT;
 	}
 	
 	public int getID(){
@@ -87,9 +87,6 @@ public class Puskesmas {
 		return this.poli_umum;
 	}
 	
-	public String getPoli_gigi(){
-		return this.poli_gigi;
-	}
 	
 	public String getPoli_KIA_KB(){
 		return this.poli_KIA_KB;
@@ -125,6 +122,10 @@ public class Puskesmas {
 	
 	public String getLaboratorium(){
 		return this.laboratorium;
+	}
+	
+	public String getPoli_THT(){
+		return this.poli_THT;
 	}
 	
 }

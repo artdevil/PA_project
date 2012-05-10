@@ -28,8 +28,11 @@
     </TableRow>
  		<ImageView
  		    android:id="@+id/imagePuskesmas"
- 		    android:layout_width="300dp"
-	        android:layout_height="200dp"
+ 		    android:layout_width="200dp"
+ 		    android:layout_height="200dp"
+ 		    android:layout_marginLeft="10dp"
+ 		    android:layout_marginRight="10dp"
+ 		    android:layout_gravity="center_horizontal"
  		    android:src="@drawable/no_image"
  		    android:contentDescription="@string/gambar_puskesmas" />
  
@@ -77,6 +80,46 @@
             android:textColor="#000000"
             android:gravity="left"/>
     </TableRow> 
+    <TableRow
+        android:layout_height="wrap_content"
+        android:layout_width="fill_parent"
+        android:gravity="center_horizontal"
+        android:paddingTop="3dp">
+        <TextView
+            android:text="jam buka:"
+            android:layout_weight="1" 
+            android:layout_width="10dp"
+            
+            android:textColor="#000000"
+            android:gravity="left"
+            android:paddingLeft="5dp"/>
+ 
+        <TextView
+            android:text="07.45-14.00"
+            android:layout_weight="1" 
+            android:textColor="#000000"
+            android:gravity="left"/>
+    </TableRow>
+    <TableRow
+        android:layout_height="wrap_content"
+        android:layout_width="fill_parent"
+        android:gravity="center_horizontal"
+        android:paddingTop="3dp">
+        <TextView
+            android:text="Hari Kerja:"
+            android:layout_weight="1" 
+            android:layout_width="10dp"
+            
+            android:textColor="#000000"
+            android:gravity="left"
+            android:paddingLeft="5dp"/>
+ 
+        <TextView
+            android:text="Senin-Sabtu"
+            android:layout_weight="1" 
+            android:textColor="#000000"
+            android:gravity="left"/>
+    </TableRow>
     <TableRow
         android:layout_height="wrap_content"
         android:layout_width="fill_parent"
@@ -187,7 +230,7 @@
 			    android:layout_height="wrap_content"
 			    android:paddingBottom="5dp" >
 			        <TextView
-			            android:text="@string/poli_gigi"
+			            android:text="@string/poli_tht"
 			            android:layout_weight="1" 
 			            android:layout_width="10dp"
 			            
@@ -196,7 +239,7 @@
 			            android:paddingLeft="5dp"/>
 			
 			        <ImageView
-			            android:id="@+id/poli_gigi"
+			            android:id="@+id/poli_tht"
 			            android:layout_width="30dp"
 			            android:contentDescription="@string/poli_gigi_image"
 			            android:paddingTop="2dp" />

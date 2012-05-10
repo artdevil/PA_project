@@ -17,7 +17,6 @@ import android.widget.TextView;
 public class puskesmasInformation extends TestingPAActivity {
 	private String dataResult;
 	public Drawable d;
-	private InputStream ims;
 	@Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -44,23 +43,15 @@ public class puskesmasInformation extends TestingPAActivity {
         if(puskesmas.getPoli_umum().equals("true")){
         	poliumum.setImageResource(R.drawable.accepted_48);
         }
-        else{
+        else if(puskesmas.getPoli_umum().equals("false")){
         	poliumum.setImageResource(R.drawable.cancel_48);
-        }
-        
-        ImageView poligigi = (ImageView) findViewById(R.id.poli_gigi);
-        if(puskesmas.getPoli_gigi().equals("true")){
-        	poligigi.setImageResource(R.drawable.accepted_48);
-        }
-        else{
-        	poligigi.setImageResource(R.drawable.cancel_48);
         }
         
         ImageView poliKIA = (ImageView) findViewById(R.id.poli_KIA_KB);
         if(puskesmas.getPoli_KIA_KB().equals("true")){
         	poliKIA.setImageResource(R.drawable.accepted_48);
         }
-        else{
+        else if(puskesmas.getPoli_KIA_KB().equals("false")){
         	poliKIA.setImageResource(R.drawable.cancel_48);
         }
         
@@ -68,7 +59,7 @@ public class puskesmasInformation extends TestingPAActivity {
         if(puskesmas.getPoli_TBC().equals("true")){
         	poliTBC.setImageResource(R.drawable.accepted_48);
         }
-        else{
+        else if(puskesmas.getPoli_TBC().equals("false")){
         	poliTBC.setImageResource(R.drawable.cancel_48);
         }
         
@@ -76,7 +67,7 @@ public class puskesmasInformation extends TestingPAActivity {
         if(puskesmas.getRawatInap().equals("true")){
         	rawatInap.setImageResource(R.drawable.accepted_48);
         }
-        else{
+        else if(puskesmas.getRawatInap().equals("false")){
         	rawatInap.setImageResource(R.drawable.cancel_48);
         }
         
@@ -85,7 +76,7 @@ public class puskesmasInformation extends TestingPAActivity {
         if(puskesmas.getPoned().equals("true")){
         	poned.setImageResource(R.drawable.accepted_48);
         }
-        else{
+        else if(puskesmas.getPoned().equals("false")){
         	poned.setImageResource(R.drawable.cancel_48);
         }
         
@@ -93,7 +84,7 @@ public class puskesmasInformation extends TestingPAActivity {
         if(puskesmas.getUGD().equals("true")){
         	UGD.setImageResource(R.drawable.accepted_48);
         }
-        else{
+        else if(puskesmas.getUGD().equals("false")){
         	UGD.setImageResource(R.drawable.cancel_48);
         }
         
@@ -101,7 +92,7 @@ public class puskesmasInformation extends TestingPAActivity {
         if(puskesmas.getPersalinan().equals("true")){
         	persalinan.setImageResource(R.drawable.accepted_48);
         }
-        else{
+        else if(puskesmas.getPersalinan().equals("false")){
         	persalinan.setImageResource(R.drawable.cancel_48);
         }
         
@@ -109,7 +100,7 @@ public class puskesmasInformation extends TestingPAActivity {
         if(puskesmas.getKonsultasi_pojok_gizi().equals("true")){
         	konsultasiGizi.setImageResource(R.drawable.accepted_48);
         }
-        else{
+        else if(puskesmas.getKonsultasi_pojok_gizi().equals("false")){
         	konsultasiGizi.setImageResource(R.drawable.cancel_48);
         }
         
@@ -117,7 +108,7 @@ public class puskesmasInformation extends TestingPAActivity {
         if(puskesmas.getKonsultasi_kesehatan().equals("true")){
         	konsultasiKesehatan.setImageResource(R.drawable.accepted_48);
         }
-        else{
+        else if(puskesmas.getKonsultasi_kesehatan().equals("false")){
         	konsultasiKesehatan.setImageResource(R.drawable.cancel_48);
         }
         
@@ -125,8 +116,16 @@ public class puskesmasInformation extends TestingPAActivity {
         if(puskesmas.getLaboratorium().equals("true")){
         	laboratorium.setImageResource(R.drawable.accepted_48);
         }
-        else{
+        else if(puskesmas.getLaboratorium().equals("false")){
         	laboratorium.setImageResource(R.drawable.cancel_48);
+        }
+        
+        ImageView poli_tht = (ImageView) findViewById(R.id.poli_tht);
+        if(puskesmas.getPoli_THT().equals("true")){
+        	poli_tht.setImageResource(R.drawable.accepted_48);
+        }
+        else if(puskesmas.getPoli_THT().equals("false")){
+        	poli_tht.setImageResource(R.drawable.cancel_48);
         }
         
         dataResult = puskesmas.getLatitude() + "," + puskesmas.getLongnitude();
@@ -144,12 +143,13 @@ public class puskesmasInformation extends TestingPAActivity {
 	private void getViewPuskesmas(String namaPuskesmas){
 		ImageView image= (ImageView) findViewById(R.id.imagePuskesmas);
         try {
-			ims = getAssets().open("image/"+namaPuskesmas+".jpg");
+			InputStream ims = getAssets().open("image/"+namaPuskesmas+".jpg");
+			
 			byte[] buffer = new byte[1024];
-			if(ims.read(buffer) > 0){
+			  if(ims.read(buffer) > 0){
 				d = Drawable.createFromStream(ims, null);
 				image.setImageDrawable(d);
-			}
+			} 
 		} catch (IOException e) {
 			return;
 		}

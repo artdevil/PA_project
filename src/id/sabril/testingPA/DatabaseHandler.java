@@ -158,8 +158,8 @@ public class DatabaseHandler extends SQLiteOpenHelper{
 	Puskesmas getPuskesmas(int id){
 		SQLiteDatabase db = this.getReadableDatabase();
 		String query = "SELECT p._id, p.namapuskesmas, p.latitude, p.longnitude, p.alamat, p.telephone," +
-				" ik.poli_umum, ik.poli_gigi, ik.poli_KIA, ik.poli_TB, ik.rawat_inap," +
-				" ik.PONED, ik.UGD, ik.persalinan, ik.pojok_gizi, ik.konsultasi_kesehatan, ik.laboratorium FROM " +TABLE_PUSKESMAS +" p INNER JOIN "+ INFO_KATEGORY +" ik ON p._id = ik.id_puskesmas" + " WHERE p._id='"+ id +"';";
+				" ik.poli_umum, ik.poli_KIA, ik.poli_TB, ik.rawat_inap," +
+				" ik.PONED, ik.UGD, ik.persalinan, ik.pojok_gizi, ik.konsultasi_kesehatan, ik.laboratorium,ik.poli_THT FROM " +TABLE_PUSKESMAS +" p INNER JOIN "+ INFO_KATEGORY +" ik ON p._id = ik.id_puskesmas" + " WHERE p._id='"+ id +"';";
 		Cursor cursor = db.rawQuery(query, null);
 		if(cursor != null){
 			cursor.moveToFirst();

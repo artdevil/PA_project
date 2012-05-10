@@ -34,5 +34,7 @@
     <string name="laboratorium">laboratorium</string>
     <string name="empty">empty</string>
     <string name="image_bottom">image_bottom</string>
+    <string name="about_me">About Me</string>
+    <string name="poli_tht">poli THT</string>
 
 </resources>

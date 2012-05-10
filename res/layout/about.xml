@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:background="#FFFFFF" >
+<TableLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/menu2"
+    android:shrinkColumns="*"  
+    android:stretchColumns="*">
+    <!-- Row 1 with single column -->
+    <TableRow
+        android:layout_height="wrap_content"
+        android:layout_width="fill_parent"
+        android:gravity="center_horizontal"
+        android:layout_marginTop="30dp"
+        android:layout_marginBottom="75dp">
+        <TextView
+            android:layout_width="match_parent" 
+            android:layout_height="wrap_content"
+            android:textSize="24dp"
+            android:id="@+id/puskesmas"
+            android:text="@string/about_me"
+            android:paddingLeft="5dp"  
+            android:layout_span="3"
+            android:textAppearance="?android:attr/textAppearanceLarge"/>
+    </TableRow>
+    <TableRow
+        android:layout_height="wrap_content"
+        android:layout_width="fill_parent"
+        android:gravity="center_horizontal"
+        android:paddingTop="10dp"
+        android:paddingLeft="5dp">
+ 
+        <TextView
+        android:id="@+id/TextView04" 
+            android:layout_weight="1" 
+            android:layout_width="10dp"
+            android:textColor="#000000"
+            android:gravity="left"
+        android:text="Mahasiswa tingkat akhir di IT Telkom. Pendiri dari Codevity.inc dan CTO (Chef Technical Officer) di Itrace. Menguasai PHP codeigniter, Ruby On Rails dan java android" />
+    	
+    </TableRow>
+    <TableRow
+        android:layout_height="wrap_content"
+        android:layout_width="fill_parent"
+        android:gravity="center_horizontal"
+        android:paddingTop="10dp"
+        android:paddingLeft="5dp">
+ 
+        <TextView
+        android:id="@+id/TextView04" 
+            android:layout_weight="1" 
+            android:layout_width="10dp"
+            android:textColor="#000000"
+            android:gravity="left"
+        android:text="Aplikasi ini saya buat sebagai proyek akhir untuk salah satu persyaratan lulus di kampus IT Telkom. Penuh harapan aplikasi ini bisa bermanfaat bagi warga kota bandung dalam mencari puskesmas guna meningkatkan kesehatan serta kesejahteraan hidup." />
+    	
+    </TableRow>
+    <TableRow
+        android:layout_height="wrap_content"
+        android:layout_width="fill_parent"
+        android:gravity="center_horizontal"
+        android:paddingTop="10dp"
+        android:paddingLeft="5dp">
+ 
+        <TextView
+        android:id="@+id/TextView04" 
+            android:layout_weight="1" 
+            android:layout_width="10dp"
+            android:textColor="#000000"
+            android:gravity="left"
+        android:text="Untuk segala pertanyaan yang berkaitan dengan aplikasi ini serta pengembangannya dapat mengirim email ke artdvl91@gmail.com " />
+    </TableRow>
+
+    <LinearLayout
+        android:id="@+id/linearLayout1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical" >
+
+        <TableLayout
+            android:id="@+id/tableLayout1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" >
+
+            <TableRow 
+                android:layout_height="wrap_content"
+        android:layout_width="fill_parent"
+        android:gravity="center_horizontal"
+        android:paddingTop="70dp"
+        android:paddingRight="10dp">
+                <TextView
+        			android:id="@+id/TextView04" 
+       			     android:layout_weight="1" 
+      		      android:layout_width="10dp"
+    		        android:textColor="#000000"
+    		        android:gravity="right"
+    		    android:text="Adhiguna Utama Sabril" />
+            </TableRow>
+        </TableLayout>
+        
+    </LinearLayout>
+  
+</TableLayout>
+</ScrollView>

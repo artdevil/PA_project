@@ -12,12 +12,15 @@ import com.google.android.maps.MapView;
 import com.google.android.maps.Overlay;
 import com.google.android.maps.OverlayItem;
 
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.database.sqlite.SQLiteException;
 import android.graphics.drawable.Drawable;
 import android.location.Location;
 import android.os.Bundle;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -34,6 +37,7 @@ public class TestingPAActivity extends MapActivity{
 	public UserOverlay userOverlay;
 	public Boolean status_track;
 	public GeoPoint pointLocation;
+	public ProgressDialog loading;
 	protected Context context;
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -42,7 +46,9 @@ public class TestingPAActivity extends MapActivity{
         setupDatabase();
         mapSetup();
         posisiPuskesmas();
-        detectionUser();
+        if(this.getIntent().getExtras().getInt("ID") == 1){
+        	detectionUser();
+        }
         Button btn = (Button) findViewById(R.id.search_button);
         btn.setOnClickListener(new View.OnClickListener() {
 			
@@ -69,6 +75,24 @@ public class TestingPAActivity extends MapActivity{
 				}
 			}
 		});
+    }
+    
+    public boolean onCreateOptionsMenu(android.view.Menu menu)
+    {
+        MenuInflater menuInflater = getMenuInflater();
+        menuInflater.inflate(R.layout.menu_down, menu);
+        return true;
+    }
+    
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item){
+    	switch (item.getItemId()) {
+		case R.id.menu_search_location:
+			detectionUser();
+			return true;
+		default:
+			return super.onOptionsItemSelected(item);
+		}
     }
     
     public void setupDatabase(){
@@ -105,6 +129,9 @@ public class TestingPAActivity extends MapActivity{
     	if(requestCode == 1){
     		if(resultCode == RESULT_OK){
     			lokasiPuskesmas = data.getExtras().getString("lokasi");
+    			loading = new ProgressDialog(this);
+    	    	loading.setMessage("deteksi lokasi user");
+    	    	loading.show();
     			MyLocation myLocation = new MyLocation();
     			status_track = new Boolean(true);
     			myLocation.getLocation(this, locationResult);
@@ -112,10 +139,25 @@ public class TestingPAActivity extends MapActivity{
     	}
     }
     
-    public void detectionUser(){
+    protected void detectionUser(){
+    	loading = new ProgressDialog(this);
+    	loading.setMessage("deteksi lokasi user");
+    	loading.show();
     	MyLocation myLocation = new MyLocation();
 		status_track = new Boolean(false);
 		myLocation.getLocation(this, locationResult);
+    }
+    
+    public void markerUser(){
+    	mapOverlays = mapView.getOverlays();
+    	drawable = this.getResources().getDrawable(R.drawable.user);
+    	userOverlay = new UserOverlay(drawable);
+    	overlayItem = new OverlayItem(pointLocation, "hello", "hello");
+    	userOverlay.addOverlay(overlayItem);
+    	mapOverlays.add(userOverlay);
+        mapController = mapView.getController();
+		mapController.animateTo(pointLocation);         //set lokasi utama user
+		mapController.setZoom(16);
     }
     
     public LocationResult locationResult = new LocationResult(){
@@ -129,27 +171,15 @@ public class TestingPAActivity extends MapActivity{
         			(int) (location.getLongitude() * 1E6)
         			);
         	markerUser();
+        	Toast.makeText(getBaseContext(), "lokasi ditemukan", Toast.LENGTH_SHORT).show();
     		if(status_track == true){
     			MarkerStreet markerStreet = new MarkerStreet(lokasiUser, lokasiPuskesmas, mapView);
                 markerStreet.directionLocation();
-                Toast.makeText(getBaseContext(), "lokasi ditemukan", Toast.LENGTH_SHORT).show();
                 status_track = new Boolean(false);
     		}
+    		loading.hide();
         }
     };
-
-    public void markerUser(){
-    	mapOverlays = mapView.getOverlays();
-		//drawable = getBaseContext().getResources().getDrawable(R.drawable.user);
-    	drawable = this.getResources().getDrawable(R.drawable.user);
-    	userOverlay = new UserOverlay(drawable);
-    	overlayItem = new OverlayItem(pointLocation, "hello", "hello");
-    	userOverlay.addOverlay(overlayItem);
-    	mapOverlays.add(userOverlay);
-        mapController = mapView.getController();
-		mapController.animateTo(pointLocation);         //set lokasi utama user
-		mapController.setZoom(16);
-    }
     
 	@Override
 	protected boolean isRouteDisplayed() { //insialisasi google maps

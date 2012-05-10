@@ -20,7 +20,7 @@ public class ListMenuPuskesmasAdapter extends ArrayAdapter<String>{
 	@Override
 	public View getView(int position, View convertView, ViewGroup parent) {
 		LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-		View rowView = inflater.inflate(R.layout.listmenupuskesmas, parent, false);
+		View rowView = inflater.inflate(R.layout.list, parent, false);
 		TextView textView = (TextView) rowView.findViewById(R.id.namapuskesmas);
 		textView.setText(values[position]);
 		return rowView;

@@ -2,6 +2,8 @@ package id.sabril.testingPA;
 
 
 import java.util.ArrayList;
+
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.drawable.Drawable;
@@ -14,7 +16,7 @@ public class mapPuskesmasOverlay extends BalloonItemizedOverlay<OverlayItem> {
 	private ArrayList<OverlayItem> overlayItemList = new ArrayList<OverlayItem>();
 	private Context mContext;
 	int request_code = 1;
-	
+	Context myContext;
 	public mapPuskesmasOverlay(Drawable marker,MapView mapView) {
 		super(marker,mapView);
 		boundCenter(marker);
@@ -39,10 +41,9 @@ public class mapPuskesmasOverlay extends BalloonItemizedOverlay<OverlayItem> {
 	@Override
 	protected boolean onBalloonTap(int index, OverlayItem item){
 		int id = index + 1;
-		//Intent myIntent = new Intent("id.sabril.testingPA.puskesmasInformation");
 		Intent myIntent = new Intent(mContext,puskesmasInformation.class);
 		myIntent.putExtra("ID", id);
-		((TestingPAActivity) mContext).startActivityForResult(myIntent,1);
+		((Activity) mContext).startActivityForResult(myIntent,1);
 		return true;
 	}
 }

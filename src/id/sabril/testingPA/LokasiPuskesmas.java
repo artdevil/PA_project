@@ -13,7 +13,7 @@ public class LokasiPuskesmas {
 	public Context mContext;
 	public GeoPoint point;
 	public OverlayItem overlayItem;
-	
+	Context myContext;
 	public LokasiPuskesmas(Context context){
 		this.mContext = context;
 	}

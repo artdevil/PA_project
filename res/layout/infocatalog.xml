@@ -1,51 +1,58 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:background="#FFFFFF" >
+<TableLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:background="@drawable/menu" >
-    
-	<LinearLayout
-        android:id="@+id/linearLayout1"
-        android:layout_width="match_parent"
-        android:layout_height="166dp"
-        android:orientation="vertical" >
-
-        <LinearLayout
-            android:id="@+id/linearLayout5"
-            android:layout_width="match_parent"
-            android:layout_height="30dp"
-            android:orientation="vertical" >
-
-            </LinearLayout>
-        <LinearLayout
-            android:id="@+id/linearLayout4"
-            android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/menu2"
+    android:shrinkColumns="*"  
+    android:stretchColumns="*">
+    <!-- Row 1 with single column -->
+    <TableRow
+        android:layout_height="wrap_content"
+        android:layout_width="fill_parent"
+        android:gravity="center_horizontal"
+        android:layout_marginTop="30dp"
+        android:layout_marginBottom="45dp">
+        <TextView
+            android:layout_width="match_parent" 
             android:layout_height="wrap_content"
-            android:orientation="vertical" >
-            <TextView
+            android:textSize="24dp"
             android:id="@+id/header"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:layout_marginLeft="10dp"
-            android:textSize="30dp" />
-        </LinearLayout>
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/linearLayout2"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical" >
-        
-		<TextView
+            android:paddingLeft="5dp"  
+            android:layout_span="3"
+            android:textAppearance="?android:attr/textAppearanceLarge"/>
+    </TableRow>
+ 		<ImageView
+ 		    android:id="@+id/imagePuskesmas"
+ 		    android:layout_width="200dp"
+ 		    android:layout_height="100dp"
+ 		    android:layout_marginLeft="10dp"
+ 		    android:layout_marginRight="10dp"
+ 		    android:layout_gravity="center_horizontal"
+ 		    android:src="@drawable/no_image"
+ 		    android:contentDescription="@string/gambar_puskesmas" />
+ 
+    
+    <!-- Row 3 with 2 columns -->
+    <TableRow
+        android:layout_height="wrap_content"
+        android:layout_width="fill_parent"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        android:paddingTop="3dp">
+        <TextView
             android:id="@+id/textinfo"
-            android:layout_width="fill_parent"
-            android:layout_height="fill_parent"
+            android:layout_width="300dp"
+            android:gravity="left"
+            android:text="fwehfiwue fshbfuw wefjhwi fwiehbfwu dfwefhiw ceiwbwe ewiubd sdbewy sifbwer cidbi fewbifbh wbijfhbwe"
             android:textColor="@android:color/black"
-            android:layout_marginLeft="10dp"
-            android:textSize="12dp" />
-    </LinearLayout>
-</LinearLayout>
+            android:textSize="14dp" />
+    </TableRow> 
+</TableLayout>
+</ScrollView>

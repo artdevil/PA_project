@@ -3,4 +3,10 @@
     <item android:id="@+id/menu_search_location"
           android:icon="@drawable/search"
           android:title="Search User" />
+    <item android:id="@+id/menu_search_category"
+          android:icon="@drawable/category"
+          android:title="Search by category" />
+    <item android:id="@+id/nearbly"
+          android:icon="@drawable/walk"
+          android:title="Search nearbly" />
 </menu>

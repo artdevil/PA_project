@@ -112,9 +112,18 @@ public class DatabaseHandler extends SQLiteOpenHelper{
 	}
 	
 	//get all puskesmas
-	public List<Puskesmas> getAllPuskesmas() {
+	public List<Puskesmas> getAllPuskesmas(String category) {
 		List<Puskesmas> puskesmasList = new ArrayList<Puskesmas>();
-		String selectQuery = "SELECT * FROM " + TABLE_PUSKESMAS ;
+		String selectQuery;
+		if (category.length() == 0){
+			selectQuery = "SELECT * FROM " + TABLE_PUSKESMAS;
+		}
+		else{
+			selectQuery = "SELECT p._id, p.namapuskesmas, p.latitude, p.longnitude, p.alamat, p.telephone," +
+					" ik.poli_umum, ik.poli_KIA, ik.poli_TB, ik.rawat_inap," +
+					" ik.PONED, ik.UGD, ik.persalinan, ik.pojok_gizi, ik.konsultasi_kesehatan, ik.laboratorium,ik.poli_THT FROM " +TABLE_PUSKESMAS +" p INNER JOIN "+ INFO_KATEGORY +" ik ON p._id = ik.id_puskesmas" + " WHERE ik."+category+"='true'";
+		}
+		
 		SQLiteDatabase db = this.getWritableDatabase();
 		Cursor cursor = db.rawQuery(selectQuery, null);
 		if(cursor.moveToFirst()){
@@ -155,11 +164,11 @@ public class DatabaseHandler extends SQLiteOpenHelper{
 		}
 		
 	//get single puskesmas
-	Puskesmas getPuskesmas(int id){
+	Puskesmas getPuskesmas(String value){
 		SQLiteDatabase db = this.getReadableDatabase();
 		String query = "SELECT p._id, p.namapuskesmas, p.latitude, p.longnitude, p.alamat, p.telephone," +
 				" ik.poli_umum, ik.poli_KIA, ik.poli_TB, ik.rawat_inap," +
-				" ik.PONED, ik.UGD, ik.persalinan, ik.pojok_gizi, ik.konsultasi_kesehatan, ik.laboratorium,ik.poli_THT FROM " +TABLE_PUSKESMAS +" p INNER JOIN "+ INFO_KATEGORY +" ik ON p._id = ik.id_puskesmas" + " WHERE p._id='"+ id +"';";
+				" ik.PONED, ik.UGD, ik.persalinan, ik.pojok_gizi, ik.konsultasi_kesehatan, ik.laboratorium,ik.poli_THT FROM " +TABLE_PUSKESMAS +" p INNER JOIN "+ INFO_KATEGORY +" ik ON p._id = ik.id_puskesmas" + " WHERE p.namapuskesmas='"+ value +"';";
 		Cursor cursor = db.rawQuery(query, null);
 		if(cursor != null){
 			cursor.moveToFirst();

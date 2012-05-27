@@ -38,7 +38,7 @@ public class Menu extends Activity implements OnClickListener{
 	
 	public void onClick(View view) {
 		if(view == maps){
-			Intent intent = new Intent(this,TestingPAActivity.class);
+			Intent intent = new Intent(this,Maps.class);
 			intent.putExtra("ID", 1);
 			startActivity(intent); 
 		}

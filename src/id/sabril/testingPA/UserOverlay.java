@@ -31,4 +31,8 @@ public class UserOverlay extends ItemizedOverlay<OverlayItem> {
 	public int size(){
 		return mOverlays.size();
 	}
+	
+	public void removeUser(){
+		mOverlays.removeAll(mOverlays);
+	}
 }

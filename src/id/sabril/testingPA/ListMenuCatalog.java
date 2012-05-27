@@ -16,7 +16,7 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 public class ListMenuCatalog extends Activity{
-	public ListMenuPuskesmasAdapter adapter;
+	public ListMenuCatalogAdapter adapter;
 	@Override
 	public void onCreate(Bundle instanceBundle) {
 		super.onCreate(instanceBundle);
@@ -33,7 +33,7 @@ public class ListMenuCatalog extends Activity{
 		String[] va = (String[]) strings.toArray(new String[strings.size()]);
 		ListView listView = (ListView) findViewById(R.id.listView);
 		listView.setTextFilterEnabled(true);
-		adapter = new ListMenuPuskesmasAdapter(this, va);
+		adapter = new ListMenuCatalogAdapter(this, va);
 		listView.setAdapter(adapter);
 		
 		listView.setOnItemClickListener(new OnItemClickListener() {

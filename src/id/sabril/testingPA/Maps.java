@@ -26,7 +26,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-public class TestingPAActivity extends MapActivity{
+public class Maps extends MapActivity{
     public MapView mapView;
     public MapController mapController;
     public String lokasiUser;
@@ -36,16 +36,19 @@ public class TestingPAActivity extends MapActivity{
     public OverlayItem overlayItem;
 	public UserOverlay userOverlay;
 	public Boolean status_track;
+	public Boolean status_nearbly;
 	public GeoPoint pointLocation;
 	public ProgressDialog loading;
+	LokasiPuskesmas puskesmas;
 	protected Context context;
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.main);
+        setContentView(R.layout.maps);
         setupDatabase();
         mapSetup();
         posisiPuskesmas();
+        status_nearbly = new Boolean(false);
         if(this.getIntent().getExtras().getInt("ID") == 1){
         	detectionUser();
         }
@@ -90,6 +93,14 @@ public class TestingPAActivity extends MapActivity{
 		case R.id.menu_search_location:
 			detectionUser();
 			return true;
+		case R.id.menu_search_category:
+			Intent intent = new Intent(this, ListCategory.class);
+			startActivityForResult(intent, 2);
+			return true;
+		case R.id.nearbly:
+			status_nearbly = new Boolean(true);
+			detectionUser();
+			return true;
 		default:
 			return super.onOptionsItemSelected(item);
 		}
@@ -112,8 +123,8 @@ public class TestingPAActivity extends MapActivity{
     }
     
     public void posisiPuskesmas(){
-    	LokasiPuskesmas puskesmas = new LokasiPuskesmas(this);
-    	puskesmas.setPosisiPuskesmas(mapView);
+    	puskesmas = new LokasiPuskesmas(this);
+    	puskesmas.setPosisiPuskesmas(mapView,"",null,null);
     }
     
     public void mapSetup() {                             //setting map
@@ -136,6 +147,13 @@ public class TestingPAActivity extends MapActivity{
     			status_track = new Boolean(true);
     			myLocation.getLocation(this, locationResult);
         	}
+    	}
+    	if(requestCode == 2){
+    		if(resultCode == RESULT_OK){
+    			puskesmas.removePuskesmas(mapView);
+    			puskesmas.setPosisiPuskesmas(mapView, data.getExtras().getString("category"),null,null);
+    			Toast.makeText(getBaseContext(), data.getExtras().getString("category"), Toast.LENGTH_SHORT).show();
+    		}
     	}
     }
     
@@ -163,20 +181,30 @@ public class TestingPAActivity extends MapActivity{
     public LocationResult locationResult = new LocationResult(){
         @Override
         public void gotLocation(final Location location){
+        	if(pointLocation != null){
+        		userOverlay.removeUser();
+        	}
         	lokasiUser = location.getLatitude()+ "," +location.getLongitude();
-			mapView.getOverlays().clear();
-			posisiPuskesmas();
         	pointLocation = new GeoPoint(
         			(int) (location.getLatitude() * 1E6),
         			(int) (location.getLongitude() * 1E6)
         			);
-        	markerUser();
+        	
+        	
         	Toast.makeText(getBaseContext(), "lokasi ditemukan", Toast.LENGTH_SHORT).show();
     		if(status_track == true){
     			MarkerStreet markerStreet = new MarkerStreet(lokasiUser, lokasiPuskesmas, mapView);
                 markerStreet.directionLocation();
                 status_track = new Boolean(false);
     		}
+    		if(status_nearbly == true){
+    			mapView.getOverlays().clear();
+    			puskesmas.setPosisiPuskesmas(mapView,"",location.getLatitude(),location.getLongitude());
+    			MapCircleOverlay circle = new MapCircleOverlay(pointLocation, 2222);
+    			mapView.getOverlays().add(circle);
+    			status_nearbly = new Boolean(false);
+    		}
+    		markerUser();
     		loading.hide();
         }
     };

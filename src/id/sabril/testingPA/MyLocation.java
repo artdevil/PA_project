@@ -5,6 +5,7 @@ import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
 import android.os.Bundle;
+import android.widget.Toast;
 
 import java.util.Timer;
 import java.util.TimerTask;
@@ -15,10 +16,11 @@ public class MyLocation {
     LocationResult locationResult;
     boolean gps_enabled=false;
     boolean network_enabled=false;
-
+    Context context;
     public boolean getLocation(Context context, LocationResult result)
     {
         //I use LocationResult callback class to pass location value from MyLocation to user code.
+    	this.context = context;
         locationResult=result;
         if(lm==null)
             lm = (LocationManager) context.getSystemService(Context.LOCATION_SERVICE);
@@ -47,7 +49,9 @@ public class MyLocation {
             lm.removeUpdates(this);
             lm.removeUpdates(locationListenerNetwork);
         }
-        public void onProviderDisabled(String provider) {}
+        public void onProviderDisabled(String provider) {
+        	Toast.makeText(context, "aktifkan GPS anda", Toast.LENGTH_SHORT).show();
+        }
         public void onProviderEnabled(String provider) {}
         public void onStatusChanged(String provider, int status, Bundle extras) {}
     };
@@ -59,7 +63,9 @@ public class MyLocation {
             lm.removeUpdates(this);
             lm.removeUpdates(locationListenerGps);
         }
-        public void onProviderDisabled(String provider) {}
+        public void onProviderDisabled(String provider) {
+        	Toast.makeText(context, "aktifkan internet anda", Toast.LENGTH_SHORT).show();
+        }
         public void onProviderEnabled(String provider) {}
         public void onStatusChanged(String provider, int status, Bundle extras) {}
     };

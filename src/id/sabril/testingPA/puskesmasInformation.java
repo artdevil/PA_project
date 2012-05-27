@@ -4,6 +4,7 @@ package id.sabril.testingPA;
 import java.io.IOException;
 import java.io.InputStream;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Typeface;
 import android.graphics.drawable.Drawable;
@@ -14,7 +15,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 
-public class puskesmasInformation extends TestingPAActivity {
+public class puskesmasInformation extends Activity {
 	private String dataResult;
 	public Drawable d;
 	@Override
@@ -22,7 +23,7 @@ public class puskesmasInformation extends TestingPAActivity {
         super.onCreate(savedInstanceState);
         DatabaseHandler db = new DatabaseHandler(this);
         setContentView(R.layout.puskesmasinformation);  
-        Puskesmas puskesmas = db.getPuskesmas(this.getIntent().getExtras().getInt("ID"));
+        Puskesmas puskesmas = db.getPuskesmas(this.getIntent().getExtras().getString("ID"));
         Typeface tf = Typeface.createFromAsset(getAssets(),"font/comicbd.ttf");
         TextView nama_puskesmas = (TextView) findViewById(R.id.puskesmas);
         nama_puskesmas.setTypeface(tf);

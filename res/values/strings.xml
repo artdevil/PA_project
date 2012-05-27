@@ -4,13 +4,13 @@
     <string name="hello">Hello World, TestingPAActivity!</string>
     <string name="app_name">SIGApp mobile</string>
     <string name="gambar_puskesmas">gambar puskesmas</string>
-    <string name="alamat">Alamat :</string>
-    <string name="latitude">Latitude :</string>
-    <string name="longnitude">Longnitude :</string>
+    <string name="alamat">Alamat</string>
+    <string name="latitude">Latitude</string>
+    <string name="longnitude">Longnitude</string>
     <string name="app_label">search</string>
     <string name="search_hint">search puskesmas</string>
     <string name="jalur_button">lihat jalur</string>
-    <string name="telephone">Telephone :</string>
+    <string name="telephone">Telephone</string>
     <string name="pelayanan">Pelayanan</string>
     <string name="poli_umum">poli umum</string>
     <string name="poli_umum_image">poli umum image</string>
@@ -36,5 +36,7 @@
     <string name="image_bottom">image_bottom</string>
     <string name="about_me">About Me</string>
     <string name="poli_tht">poli THT</string>
+    <string name="hari_kerja">Hari Kerja</string>
+    <string name="jam_buka">jam buka</string>
 
 </resources>

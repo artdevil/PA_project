@@ -7,11 +7,11 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
-public class ListMenuPuskesmasAdapter extends ArrayAdapter<String>{
+public class ListMenuCatalogAdapter extends ArrayAdapter<String>{
 	private final Context context;
 	private final String[] values;
 
-	public ListMenuPuskesmasAdapter(Context context, String[] values) {
+	public ListMenuCatalogAdapter(Context context, String[] values) {
 		super(context, R.layout.listmenucatalog, values);
 		this.context = context;
 		this.values = values;

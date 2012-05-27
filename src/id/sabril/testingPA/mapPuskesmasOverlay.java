@@ -18,8 +18,8 @@ public class mapPuskesmasOverlay extends BalloonItemizedOverlay<OverlayItem> {
 	int request_code = 1;
 	Context myContext;
 	public mapPuskesmasOverlay(Drawable marker,MapView mapView) {
-		super(marker,mapView);
-		boundCenter(marker);
+		super(boundCenterBottom(marker), mapView);
+		populate();
 		mContext = mapView.getContext();
 	}
 	
@@ -40,10 +40,14 @@ public class mapPuskesmasOverlay extends BalloonItemizedOverlay<OverlayItem> {
 	
 	@Override
 	protected boolean onBalloonTap(int index, OverlayItem item){
-		int id = index + 1;
+		String value = item.getTitle();
 		Intent myIntent = new Intent(mContext,puskesmasInformation.class);
-		myIntent.putExtra("ID", id);
+		myIntent.putExtra("ID", value);
 		((Activity) mContext).startActivityForResult(myIntent,1);
 		return true;
+	}
+	
+	public void remove() {
+		overlayItemList.removeAll(overlayItemList);
 	}
 }

@@ -17,7 +17,7 @@ public MapCircleOverlay(GeoPoint point, float radius) {
     this.point = point;
 
     paint1 = new Paint();
-    paint1.setARGB(128, 0, 0, 255);
+    paint1.setARGB(135, 0, 173, 255);
     paint1.setStrokeWidth(2);
     paint1.setStrokeCap(Paint.Cap.ROUND);
     paint1.setAntiAlias(true);
@@ -25,7 +25,7 @@ public MapCircleOverlay(GeoPoint point, float radius) {
     paint1.setStyle(Paint.Style.STROKE);
 
     paint2 = new Paint();
-    paint2.setARGB(64, 0, 0, 255);
+    paint2.setARGB(60, 0, 173, 255);
 
     this.radius = radius;
 }

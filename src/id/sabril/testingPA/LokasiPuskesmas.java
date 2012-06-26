@@ -47,7 +47,7 @@ public class LokasiPuskesmas {
 		        			);
 	        		if((latitude >= (lat - 0.02) && latitude <= (lat + 0.02)) && (longnitude >= (lon - 0.02) && longnitude <= (lon + 0.02))){
 		        		overlayItem = new OverlayItem(point, cn.getNamaPuskesmas(), cn.getAlamat());
-		        		mapPuskesmas.addItem(overlayItem); 
+		        		mapPuskesmas.addItem(overlayItem);  
 		        	}
 	        		else{
 	        			
